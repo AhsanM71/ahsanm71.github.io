@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 ligeneric.htmlcense (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ahsan Muzammil</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Leveraging Generative AI for Test Automation</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="generic.html" class="active">Project Overview</a></li>
+						<li><a href="images/NLP.pdf">Poster</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Project Details</h1>
+							<p>Utilized generative AI models to read natural language descriptions of test cases and write the corresponding formal languages.</p>
+							<span class="image fit"><img src="images/img1.png" alt="" /></span>
+							<div style="text-align: center; font-style: italic;">Figure 1: Project Workflow</div>
+							<h2>Introduction:</h2>
+							<p>NLP is a branch of AI dedicated to the interaction between human language and computers, including tasks like translating natural language (e.g. English sentences) into formal structures (e.g. code).</p>
+							<p>I worked on a collaborative project between <a href="https://mcscert.mcmaster.ca/">McSCert</a> and an industrial partner. We were provided with a sample of industrial test cases (formatted in XML) and utilized generative AI to transform the natural language descriptions from these test cases into a formal, code-like structure which we compared to the original implementation.</p>
+							<h2 class="highlight">Pre-Parsing (XML Parser):</h2>
+							<ul>
+								<li><strong>XML Data Extraction:</strong> An existing Python script was used to parse the provided industrial test cases, extract relevant information, and consolidate it into a single plaintext file named “pretty.” This approach was used for easy manual modification of the dataset.</li>
+								<li><strong>Pretty File Parsing:</strong> Refined a Python script to separate contents of "pretty" files into distinct files based on sections like context, natural language, formal language, ID or organized the data into stepwise files with separate used and unused context, formal and natural languages for each step.</li>
+							</ul>
+
+							<p style="text-align: center;">
+								<img src="images/img2.png" alt="Description" style="display: block; margin: 0 auto;" />
+							</p>
+							<div style="text-align: center; font-style: italic;">Figure 2: Pre-Parsing Workflow</div>
+
+							<h2 class="highlight-light">Generate Formal Language:</h2>
+							<ul>
+								<li>Takes pre-parsed data, prefix, and produces a prompt. Feeds inputs to a specified pre-trained model.</li>
+								<li>The model processes the input and produces the corresponding formal language output.</li>
+								<li>Compute the CHRF score by comparing the expected and actual strings. Then log the results to MLflow and run a post-processing script to incorporate additional metrics if necessary.</li>
+							</ul>
+								
+							<table>
+								<tr>
+									<td class="center" style="font-size: 18px;"><strong>Manipulating Generative AI Input:</strong></td>
+								</tr>
+								<tr>
+									<td class="center">1. Sort the context section in random or alphabetical order. For random shuffling, we use a seed to ensure the reproducibility of the shuffle.</td>
+								</tr>
+								<tr>
+									<td class="center">2. Rearrange the prompt by altering the order of natural language and context within the input provided to the generative AI.</td>
+								</tr>
+								<tr>
+									<td class="center">3. Progressively add irrelevant context to the used context and observe its impact on the generative AI's ability to produce the expected result.</td>
+								</tr>
+							</table>
+
+							<div class="center" style="font-size: 18px;"><strong>Observations from Input Manipulation:</strong></div>
+							<ul>
+								<li>Note: The rightmost bin in the histogram represents a 100% CHRF score, indicating that the model's output exactly matched the expected result when converting natural language descriptions to formal language. Therefore, the further the graph is to the right, the better the model's performance.</li>
+								<li>Reordering the context section of the input had minimal effect on the model's performance or its ability to convert the natural language descriptions of the test cases into formal language, as indicated by the comparisons between column 1 and column 2 in Figure 3.</li>
+								<li>Similarly, rearranging the prompt given to the model—whether presenting the context first followed by the natural language, or the reverse—did not significantly affect the model's performance, as shown by the comparisons between rows 1 and 2 with rows 3 and 4 in Figure 3.</li>
+								<li>Lastly, the final input manipulation had the most significant impact. As seen in Figure 3, when the model is provided with precisely what it needs (relevant context only, as in rows 2 and 4), its performance improves considerably. In both rows 2 and 4, the histograms are skewed to the left, with most data points positioned towards the right of the x-axis, indicating that the model produced more accurate outputs for the natural language descriptions. In contrast, when the model is given all the information at once, as in rows 1 and 3, the histograms are skewed to the right, with most data points on the left side of the x-axis, suggesting that the model struggled to match the expected outcomes with its actual outputs for the natural language descriptions of the test cases.</li>
+							</ul>
+							 
+							<p style="text-align: center;">
+								<img src="images/tables.png" alt="Description" style="display: block; margin: 0 auto; height: 500px;" />
+								<div style="text-align: center; font-style: italic;">Figure 3: GEMMA model performance from input manipulations.</div>
+							</p>
+							
+							  
+							  <h2 class="highlight-dark">Post-Parsing (Formal Language Parser)</h2>
+							  <ul>
+								<li>This script processes the formal language output by the model and displays it on the command line as a JSON string.</li>
+								<li><strong>Input:</strong> Formal language (provided either as a string or from a file)</li>
+								<li><strong>Output:</strong> Prints to the command line a list of dictionaries, with each dictionary representing a command, or nested commands.</li>
+								<li><strong>Example:</strong>
+									<pre><code>Input:
+ * LOOP(4)
+ * READ(varB, 0)
+ * WRITE(varA, val)
+
+Output:
+[
+	{cmd: "loop", count: "4", inner: [
+			{ cmd: "read", mapping: "varB", value: "0" },
+			{ cmd: "write", mapping: "varA", value: "val" },
+		],
+	},
+]
+</code></pre>
+	</li>
+</ul>
+
+<h2>Project Toolkit</h2>
+
+    <div class="section">
+        <h3>Version Control and Collaboration:</h3>
+        <ul>
+            <li>GitLab: For managing our code repository and facilitating collaboration among team members.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Development Environment:</h3>
+        <ul>
+            <li>VS Code: As my primary code editor for writing and debugging code.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Programming Language:</h3>
+        <ul>
+            <li>Python: The main programming language used for our project.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Natural Language Processing Frameworks:</h3>
+        <ul>
+            <li>Hugging Face: Utilized for accessing pre-trained language models.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Experiment Management Tracking:</h3>
+        <ul>
+            <li>MLflow: A platform used to manage the machine learning lifecycle, including experimentation, reproducibility, and deployment.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Scripting:</h3>
+        <ul>
+            <li>Bash Scripts: Used to automate and run the experiments.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Large Language Models (LLMs) Used:</h3>
+        <ul>
+            <li>Gemma/Gemma-IT</li>
+            <li>GPT-J</li>
+            <li>Mistral/Mistral-IT</li>
+        </ul>
+    </div>
+
+
+													</div>
+												</section>
+							
+							
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<p style="text-align: center;">
+							<li>Copyright &copy; 2024 Ahsan Muzammil. All rights reserved.</li>
+						</p>
+						
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+		
+			
+
+	</body>
+</html>

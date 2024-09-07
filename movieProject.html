@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ahsan Muzammil</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Movie Recommender</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="generic.html" class="active">Project Overview</a></li>
+						<li><a href="https://movierecommender1.streamlit.app">Demo</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Projects Details</h1>
+							<span class="image fit"><img src="images/movieImage.png" alt="" /></span>
+							<section>
+								<h2>Introduction</h2>
+								<p>This project implements a movie recommendation system. It is divided into three main components: loading the dataset, generating movie recommendations, and creating a frontend application to interact with the recommendations.</p>
+							</section>
+						
+							<section>
+								<h2>1. Load Dataset</h2>
+								<p>The first part of the project involves loading and preparing the movie dataset. We start by importing the dataset from CSV files and then perform data cleaning and formatting. This involves extracting relevant columns such as movie IDs, titles, genres, keywords, cast, and crew. The dataset is processed to create a comprehensive and structured format that will be used for generating movie recommendations.</p>
+							</section>
+						
+							<section>
+								<h2>2. Generate Movie Recommendations</h2>
+								<p>In the second part, we focus on generating movie recommendations based on the processed dataset. The system utilizes Natural Language Processing (NLP) techniques to transform textual data into numerical vectors. By applying algorithms such as cosine similarity, the system compares these vectors to recommend movies similar to the ones the user inputs. This process involves feature extraction, vectorization, and similarity computation to provide relevant movie suggestions.</p>
+							</section>
+						
+							<section>
+								<h2>3. Frontend Application</h2>
+								<p>The final part of the project involves developing a frontend application that allows users to interact with the movie recommendation system. Using Streamlit, we create an intuitive user interface where users can select a movie and receive recommendations. The frontend application displays recommended movies along with their posters, making it easy for users to explore and find new movies based on their preferences.</p>
+							</section>
+						
+							<hr>
+						
+							<section>
+								<p>By combining these components, the project provides a comprehensive movie recommendation system that is both functional and user-friendly. The system integrates data processing, recommendation algorithms, and a responsive frontend to deliver an engaging experience for users.</p>
+							</section>
+
+							<hr> 
+
+							<section class="project-section">
+								<h2>Project Toolkit</h2>
+								<ul>
+									<li><strong>Python:</strong> The primary programming language used for data processing and model building. In the code, Python is used to implement all core functionalities, including data loading, preprocessing, feature extraction, recommendation generation, and frontend application development.</li>
+									<li><strong>NumPy:</strong> A library for numerical computations in Python. In the project, NumPy is used indirectly via pandas for data manipulation and matrix operations, which are essential for handling large datasets efficiently.</li>
+									<li><strong>Pandas:</strong> A data manipulation and analysis library for Python. Pandas was used to load the dataset, clean and preprocess the data, and merge data from different sources. It is crucial for managing and transforming the data into the format required for generating recommendations.</li>
+									<li><strong>NLTK:</strong> A natural language processing toolkit for Python. NLTK is used for stemming the text data, which helps in reducing words to their root forms, improving the quality of text analysis and similarity calculations.</li>
+									<li><strong>Scikit-learn:</strong> A machine learning library used for implementing machine learning algorithms and metrics. In this project, scikit-learn’s `CountVectorizer` is used to convert text data into numerical vectors, and `cosine_similarity` is used to compute the similarity between movies.</li>
+									<li><strong>Streamlit:</strong> A library for building interactive web applications in Python. Streamlit is used to create a frontend interface where users can input a movie title and get recommendations. It simplifies the development of the user interface and makes the application accessible through a web browser.</li>
+									<li><strong>Pickle:</strong> A module for serializing and deserializing Python objects. Pickle is used to save and load the preprocessed movie data and similarity matrix, ensuring that the application can access these objects without needing to recompute them each time.</li>
+									<li><strong>Requests:</strong> A library for making HTTP requests to external APIs. Requests is used to fetch movie poster images from The Movie Database (TMDb) API, enhancing the frontend application by displaying movie posters along with recommendations.</li>
+								</ul>
+							</section>
+
+							<section>
+								<h2>Try It Out</h2>
+								<a href="https://movierecommender1.streamlit.app" class="button">Access the Application</a>
+							</section>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<p style="text-align: center;">
+							<li>Copyright &copy; 2024 Ahsan Muzammil. All rights reserved.</li>
+						</p>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
