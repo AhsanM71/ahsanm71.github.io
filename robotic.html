@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ahsan Muzammil</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Robotic Recycling Algorithm</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="generic.html" class="active">Project Overview</a></li>
+						<li><a href="https://www.notion.so/Revenge-of-The-Recycling-System-53844bbae0764c5ea8b981bb1c5c3474?pvs=4">More Info</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Project Details</h1>
+							<span class="image left"><img src="images/robot2.jpeg" alt="" /></span>
+							<section>
+								<h2>Introduction</h2>
+								<p>
+									In this project, an algorithm was developed to control a robotic system designed for recycling tasks. The system comprises several components: a Q-RM robot for handling recycling objects, a Q-bot for transporting these objects, and an A-bot for returning to the home position after completing the recycling task.
+								</p>
+								<p>
+									The process begins with the Q-RM robot grabbing recycling objects from a dispenser and placing them into the Q-bot. The Q-bot then uses a line-following algorithm to navigate to the correct bin location based on the color of the bin. Once at the bin, the Q-bot deposits the trash and returns to its starting position.
+								</p>
+								<p>
+									This project was first simulated in a virtual environment using Quanser Interactive Q-labs. After successful testing and validation in the virtual environment, the algorithm was implemented in the real world.
+								</p>
+							</section>
+						
+							<section>
+								<h2>Virtual Simulation Details</h2>
+								<p>
+									The virtual simulation involved configuring the servo table and bins with specific angles and color codes. The Q-RM and Q-bot robots were controlled through a series of commands to handle and process recycling objects. The simulation was coded to manage container release, loading, transport, and deposition operations.
+								</p>
+								<p>
+									Key features included:
+									<ul>
+										<li>Release and load containers based on predefined conditions.</li>
+										<li>Use of line-following and color sensors for navigation.</li>
+										<li>Deposit containers into bins based on their color.</li>
+										<li>Return the Q-bot to the home position after depositing the trash.</li>
+									</ul>
+								</p>
+							</section>
+						
+							<section>
+								<h2>Real-World Implementation</h2>
+								<p>
+									The real-world implementation involved adapting the virtual simulation code to work with physical hardware. This included configuring the robots with actual servo motors, sensors, and other components to perform recycling tasks in a real environment.
+								</p>
+								<p>
+									The real-life system maintained similar functionality as the virtual simulation but required additional calibration and testing to ensure proper operation with physical components.
+								</p>
+							</section>
+							<section>
+								<a href="https://www.notion.so/Revenge-of-The-Recycling-System-53844bbae0764c5ea8b981bb1c5c3474?pvs=4" class="button">More Info</a>
+							</section>	
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<p style="text-align: center;">
+							<li>Copyright &copy; 2024 Ahsan Muzammil. All rights reserved.</li>
+						</p>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

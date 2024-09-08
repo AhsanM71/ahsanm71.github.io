@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ahsan Muzammil</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">FPGA-Based Combination Lock</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="generic.html" class="active">Project Overview</a></li>
+						<li><a href="https://github.com/AhsanM71/Combination-Lock/tree/main">GitHub Repository</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Project Details</h1>
+							<span class="image fit"><img src="images/Basys3-Xilinx-1000x755.jpg" alt="" /></span>
+							<section id="title">
+								<h2>Introduction</h2>
+								<p>This project involves designing and implementing a combination lock on an FPGA, programmed using Verilog. The lock system works by comparing user input with a predefined combination and provides feedback on whether the correct combination was entered or not. The system includes features such as the ability to set a new combination and alarm functionality if the combination is incorrect.</p>
+							</section>
+						
+							<!-- Module Descriptions -->
+							<section id="modules">
+								<h2>Module Breakdown</h2>
+								
+								<!-- Comparator Module -->
+								<h3>1. Comparator Module</h3>
+								<p>The comparator module is responsible for comparing the user input with the predefined combination. If the input matches the combination, the lock is "opened" and the system signals a success. If not, the user is informed that the input is incorrect.</p>
+								
+								<!-- 7-Segment Display (hexDisp) -->
+								<h3>2. 7-Segment Display Module (hexDisp)</h3>
+								<p>This module controls the display of information using a 7-segment display. Based on the current state of the lock (e.g., open, new combination, or alarm triggered), it shows the appropriate output, providing feedback to the user.</p>
+								
+								<!-- Main Control Module -->
+								<h3>3. Main Control Module</h3>
+								<p>The main module ties together all the sub-modules such as the comparator, display, and register modules. It manages the overall operation of the lock, including reading user input, comparing it to the combination, and handling alarms and new combination settings.</p>
+						
+								<!-- Pulse Circuit Module -->
+								<h3>4. Pulse Circuit Module</h3>
+								<p>The pulse circuit ensures that button presses (e.g., Enter and Change) are processed properly, generating pulse signals for other components to act upon. It helps in filtering the noise of button presses and ensures that only valid presses trigger the appropriate actions.</p>
+						
+								<!-- Register and Combination Register (register and register4) -->
+								<h3>5. Register and Combination Register Modules</h3>
+								<p>These modules store the current combination and allow updates if the user wants to change the lock's combination. The combination is stored as a 4-bit value, and the system allows the lock to be reset and new combinations to be set by the user.</p>
+						
+							</section>
+						
+							<!-- Workflow Explanation -->
+							<section id="workflow">
+								<h2>How the Combination Lock Works</h2>
+								<ol>
+									<li>The user inputs a 4-digit combination via input switches, which is fed to the comparator module.</li>
+									<li>The comparator checks whether the user input matches the stored combination.</li>
+									<li>If the combination matches, the lock is opened, and a signal is sent to the display to indicate success.</li>
+									<li>If the combination is incorrect, an alarm is triggered after a certain number of attempts.</li>
+									<li>Using the "Change" button, the user can reset the combination and store a new one in the system.</li>
+									<li>All outputs (success, alarm, or new combination) are displayed on the 7-segment display for clear feedback.</li>
+								</ol>
+							</section>
+						
+							<!-- Key Features -->
+							<section id="features">
+								<h2>Key Features</h2>
+								<ul>
+									<li><strong>Combination Matching:</strong> Compares the input combination with the stored combination and opens the lock if correct.</li>
+									<li><strong>New Combination Setting:</strong> Allows users to set a new 4-bit combination using a dedicated button.</li>
+									<li><strong>Alarm System:</strong> Triggers an alarm if the wrong combination is entered multiple times.</li>
+									<li><strong>Visual Feedback:</strong> Provides real-time feedback through a 7-segment display, indicating the lock's status.</li>
+								</ul>
+							</section>
+							<section>
+								<h2>Source Code</h2>
+								<a href="https://github.com/AhsanM71/Combination-Lock/tree/main" class="button">GitHub Repository</a>
+							</section>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<p style="text-align: center;">
+							<li>Copyright &copy; 2024 Ahsan Muzammil. All rights reserved.</li>
+						</p>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

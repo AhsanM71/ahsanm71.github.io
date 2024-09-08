@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ahsan Muzammil</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Rescue Mission</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="generic.html" class="active">Project Overview</a></li>
+						<li><a href="https://github.com/AhsanM71/Rescue-Mission">GitHub Repository</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Project Details</h1>
+							<span class="image fit"><img src="images/mapRecord.gif" alt="Description of the GIF"></span>
+							
+
+    <h2>Introduction</h2>
+    <p>Our team has developed a comprehensive solution for ACME Corp's Rescue Drone System, designed to manage the drone's operations for locating and rescuing individuals in hostile marine environments. The system consists of four main components: the Drone package, the Map package, the Phase package, and the Report package.</p>
+
+    <h2>Drone Package Overview</h2>
+    <p>The Drone package handles the conversion of drone commands from JSON format into executable Java code, utilizing the Adapter Pattern from the Gang of Four design patterns. Key aspects include:</p>
+    <h3>1. JSON to Java Command Transformation</h3>
+    <p>Transforms JSON commands into Java objects for execution, integrating external command sources with our Java-based system.</p>
+    
+    <h3>2. Adapter Pattern Implementation</h3>
+    <p>Utilizes the Adapter Pattern to ensure compatibility between command sources and the internal control system, providing a consistent interface and enhancing flexibility.</p>
+
+    <h2>Map Package Overview</h2>
+    <p>The Map package is crucial for tracking the geographic information relevant to the rescue mission. It is responsible for:</p>
+    
+    <h3>1. Tracking Inlets and Emergency Sites</h3>
+    <p>Maintains records of discovered inlets and emergency sites during the drone's scans of the island.</p>
+    
+    <h3>2. Finding the Closest Inlet</h3>
+    <p>Determines the nearest inlet to the emergency site upon completion of scanning or battery depletion, ensuring efficient rescue operations.</p>
+
+    <h2>Phase Package Overview</h2>
+    <p>The Phase package contains the algorithm phases that guide the drone's scanning of the island. The phases are structured as follows:</p>
+    
+    <h3>1. Initial Position to Nearest Corner</h3>
+    <p>Moves the drone to the nearest corner from its initial position to calculate distances of inlets and the emergency site relative to a corner of the map.</p>
+    
+    <h3>2. Initial Detection of Island</h3>
+    <p>In this phase of the algorithm, the drone traverses and scans the map to identify the island's edge.</p>
+    
+    <h3>3. Scanning Phases</h3>
+    <p>The following phases are executed in a loop until the entire map is scanned or the drone runs out of battery:</p>
+    <ul>
+        <li><strong>ScanLine Phase:</strong> Fly and scan the island from one side to the other.</li>
+        <li><strong>UTurn Phase:</strong> Turns the drone around when it reaches the edge of the island, allowing for continuous scanning.</li>
+    </ul>
+    <p>These phases repeat until the scanning objective is completed or the drone’s battery is depleted.</p>
+
+    <h2>Report Package Overview</h2>
+    <p>The Report package is responsible for generating reports at the end of the program. This includes:</p>
+    
+    <h3>1. Mission Success Check</h3>
+    <p>Determines whether the drone successfully found the nearest inlet to the emergency site or if it failed to complete the mission.</p>
+    
+    <h3>2. Final Reporting</h3>
+    <p>Outputs the result of the mission, providing information on the success or failure of the rescue operation and ensuring that all relevant data is captured and reported.</p>
+
+    <h2>Integration of Packages</h2>
+    <p>The integration of the Drone, Map, Phase, and Report packages ensures a seamless and effective operation. The Drone package manages command execution, the Map package tracks geographic data, the Phase package orchestrates the scanning process, and the Report package evaluates the success of the mission. Together, they enable the drone to navigate, discover, and report efficiently in challenging environments.</p>
+
+    <h2>Conclusion</h2>
+    <p>The developed system provides a robust solution for managing drone operations and rescue missions. By combining command transformation, geographic tracking, a structured scanning algorithm, and comprehensive reporting, the system meets the complex requirements of ACME Corp’s Rescue Drone System.</p>
+	<section>
+		<h2>Source Code</h2>
+		<a href="https://github.com/AhsanM71/Rescue-Mission" class="button">GitHub Repository</a>
+	</section>	
+					</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<p style="text-align: center;">
+							<li>Copyright &copy; 2024 Ahsan Muzammil. All rights reserved.</li>
+						</p>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
